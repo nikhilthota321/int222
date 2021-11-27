@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--===== MAIN JS =====-->
+    <script src="./assets/js/main.js" defer></script>
+    <style>
+        main{
+            min-height: 80vh;
+        }
+    </style>
+
+    <title>Your Cart</title>
+    <link rel="icon" href="./assets/img/roby.ico"/>
+    <script>
+        const success = "<%= messages.success %>"
+        if(success) alert(success)
+        const error = "<%= messages.error %>"
+        if(error) alert(error)
+    </script>
+
+</head>
+<body>
+
+    <%- include('../templates/user-header', {title: title, isAutheticated : true}); %>
+
+    <main class="l-main"> 
+        <section class="cart section">
+            <h2 class="section-title">Your Cart</h2>
+            <div class="cart__container bd-grid">
+
+                <% if(!items.length){ %>
+                    <div class="cart__item">
+                        <h3 style="padding: 1rem; margin: 0px auto;color: #141414;"> No Items Added.</h3>
+                    </div>
+                <% }else{
+                   for( let item of items){ 
+                        totalPrice += item.productId.price   
+                    %>
+                
+                <div class="cart__item">
+
+                    <div class="cart__inside">
+                        <img src="<%= item.productId.imageUrl %>" alt="">
+                    </div>
+                    <div class="cart__inside">
+                        <h3 class="cart__title"><%= item.productId.name %></h3>
+                        <!-- <p class="cart__description">Get 10% discount for all products</p> -->
+                        <p class="cart__description">Quantity: <%= item.quantity %></p>
+                    </div>
+    
+                    <div class="cart__inside">
+                        <p class="cart__description">Size: L</p>
+                        <p class="cart__description">RS:<%= item.productId.price %>/-</p>
+                        <a href="/remove-cart-item/<%= item.id %>"><button class="cart__description cart__button">Remove</button></a>
+                    </div>
+
+                </div>
+                <% }} %>
+                <!-- <div class="cart__item">
+
+                    <div class="cart__inside">
+                        <img src="./assets/img/collection1.png" alt="">
+                    </div>
+                    <div class="cart__inside">
+                        <h3 class="cart__title">New Nike RN Sneaker</h3>
+                        <p class="cart__description">Get 10% discount for all products</p>
+                        <p class="cart__description">Quantity: 1</p>
+                    </div>
+    
+                    <div class="cart__inside">
+                        <p class="cart__description">Size: L</p>
+                        <p class="cart__description">Price: $99.9</p>
+                        <button class="cart__description cart__button">Remove</button>
+                    </div>
+                    
+
+                </div> -->
+                <% if(items.length){ %>
+                <div class="cart__item">
+                    <div class="cart__inside">
+                        <h3 class="cart__title">Total:  Rs:<%= totalPrice %>/- </h3>
+                    </div>
+                    <div class="cart__inside">
+                        <a href="/confirm-order"><button class="cart__button">Place Order</button></a>
+                        
+                    </div>
+                </div>
+                <% } %>
+
+                
+            </div>
+        </section>
+    </main>
+
+    <%- include('../templates/footer'); %>
+
+    
+    
+</body>
+</html>

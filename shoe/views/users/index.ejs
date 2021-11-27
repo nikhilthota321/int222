@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--===== MAIN JS =====-->
+        <script src="./assets/js/main.js" defer></script>
+        
+
+        <title>Home Roby </title>
+        <link rel="icon" href="./assets/img/roby.ico"/>
+    </head>
+    <body>
+
+        <%- include('../templates/user-header', {title: title, isAutheticated : isAutheticated}); %>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home" id="home">
+                <div class="home__container bd-grid">
+                    <div class="home__sneaker">
+                        <div class="home__shape"></div>
+                        <img src="assets/img/imghome.png" alt="" class="home__img">
+                    </div>
+
+                    <div class="home__data">
+                        <span class="home__new">New in</span>
+                        <h1 class="home__title">YEEZY BOOST <br> SPLY - 350</h1>
+                        <p class="home_description">Explore the new collections of sneakers</p>
+                        <a href="#" class="button">Explore now</a>
+                    </div>
+                </div>
+            </section>
+            <!--===== FEATURED =====-->
+            <section class="featured section" id="featured">
+                <h2 class="section-title">FEATURED</h2>
+
+                <div class="featured__container bd-grid">
+                    <% for (let product of products) {
+                        if(product.featured === true){ %>
+                    <article class="sneaker">
+                        <div class="sneaker__sale">Sale</div>
+                        <img src="<%= product.imageUrl %>" alt="" class="sneaker__img">
+                        <span class="sneaker__name"><%= product.name %></span>
+                        <span class="sneaker__price">Rs.<%= product.price %>/-</span>
+                        <a href="/add-to-cart/<%= product.id %>" class=button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <% }} %>
+                    <!-- <article class="sneaker">
+                        <div class="sneaker__sale">Sale</div>
+                        <img src="assets/img/featured2.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free RN</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <div class="sneaker__sale">Sale</div>
+                        <img src="assets/img/featured3.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free RN</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article> -->
+                </div>
+            </section>
+
+            <!--===== COLLECTION =====-->
+            <section class="collection section">
+                <div class="collection__container bd-grid">
+                    <div class="collection__card">
+                        <div class="collection__data">
+                            <h3 class="collection__name">Nike</h3>
+                            <p class="collection__description">New collection 2020</p>
+                            <a href="#" class="button-light">Buy Now <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                        </div>
+                        <img src="assets/img/collection1.png" alt="" class="collection__img">
+                    </div>
+
+                    <div class="collection__card">
+                        <div class="collection__data">
+                            <h3 class="collection__name">Nike</h3>
+                            <p class="collection__description">New collection 2020</p>
+                            <a href="#" class="button-light">Buy Now <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                        </div>
+                        <img src="assets/img/collection2.png" alt="" class="collection__img">
+                    </div>
+
+                </div>
+            </section>
+
+            <!--===== WOMEN SNEAKERS =====-->
+            <section class="women section" id="women">
+                <h2 class="section-title">WOMEN SNEAKERS</h2>
+
+                <div class="women__container bd-grid">
+                    <% for (let product of products) {
+                        if(product.gender === 'female'){ %>
+                    <article class="sneaker">
+                        <img src="<%= product.imageUrl %>" alt="" class="sneaker__img">
+                        <span class="sneaker__name"><%= product.name %></span>
+                        <span class="sneaker__price"><%= product.price %></span>
+                        <a href="/add-to-cart/<%= product.id %>" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <% }} %>
+
+                    <!-- <article class="sneaker">
+                        <img src="assets/img/women2.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free TR</span>
+                        <span class="sneaker__price">$129.99</span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+
+                    <article class="sneaker">
+                        <img src="assets/img/women3.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike GS PINK</span>
+                        <span class="sneaker__price">$129.99</span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+
+                    <article class="sneaker">
+                        <img src="assets/img/women4.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Get 5</span>
+                        <span class="sneaker__price">$129.99</span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article> -->
+                </div>
+            </section>
+
+            <!--===== OFFER =====-->
+            <section class="offer section">
+                <div class="offer__container bd-grid">
+                    <div class="offer__data">
+                        <h3 class="offer__title">50% OFF</h3>
+                        <p class="offer__description">In Adidas Superstar sneakers</p>
+                        <a href="#" class="button">Shop Now</a>
+                    </div>
+                    <img src="assets/img/offert.png" alt="" class="offer__img">
+                </div>
+            </section>
+
+            <!--===== NEW COLLECTION =====-->
+            <section class="new section" id="new">
+                <h2 class="section-title">NEW COLLECTION</h2>
+
+                <div class="new__container bd-grid">
+                    <div class="new__mens">
+                        <img src="assets/img/new1.png" alt="" class="new__mens-img">
+                        <h3 class="new__title">Mens Soes</h3>
+                        <span class="new__price">From $79.99</span>
+                        <a href="#" class="button-light">View Collection <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </div>
+                    <div class="new__sneaker">
+                        <% 
+                        index = 0; 
+                        for (let product of products) {
+                            if(index > 3) break; 
+                            if(product.newCollection){
+                            %>
+                            <div class="new__sneaker-card">
+                                <img src="<%= product.imageUrl %>" alt="" class="new__sneaker-img">
+                                <div class="new__sneaker-overlay">
+                                    <a href="/add-to-cart/<%= product.id %>" class="button">Add to Cart</a>
+                                </div>
+                                <span class="new__price">Rs.<%= product.price %>/-</span>
+                            </div>
+                        <% index++; } }%>
+                        <!-- <div class="new__sneaker-card">
+                            <img src="assets/img/new3.png" alt="" class="new__sneaker-img">
+                            <div class="new__sneaker-overlay">
+                                <a href="#" class="button">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="new__sneaker-card">
+                            <img src="assets/img/new4.png" alt="" class="new__sneaker-img">
+                            <div class="new__sneaker-overlay">
+                                <a href="#" class="button">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="new__sneaker-card">
+                            <img src="assets/img/new5.png" alt="" class="new__sneaker-img">
+                            <div class="new__sneaker-overlay">
+                                <a href="#" class="button">Add to Cart</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+
+            <!--===== NEWSLETTER =====-->
+            <section class="newsletter section">
+                <div class="newsletter__container bd-grid">
+                    <div>
+                        <h3 class="newsletter__title">Subscribe And Get <br> 10% OFF</h3>
+                        <p class="newsletter__description">Get 10% discount for all products</p>
+                    </div>
+                    
+                    <form action="" class="newsletter__subscribe">
+                        <input type="text" name="" placeholder="@email.com" id="" class="newsletter__input">
+                        <a href="#" class="button">Subscribe</a>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+
+ 
+        <%- include('../templates/footer'); %>
+        
+
+
+        
+    </body>
+</html>

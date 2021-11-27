@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="../assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+   
+    <title><%= title %></title>
+</head>
+<body>
+            <!--===== HEADER =====-->
+            <%- include('../templates/admin-header',{ title : title}) %>
+
+            <main class="l-main">
+                <!--===== FEATURED =====-->
+            <section class="featured section" id="featured">
+                <h2 class="section-title">FEATURED</h2>
+
+                <div class="featured__container bd-grid">
+                    <% if (prods.length > 0) { %>
+                        <div class="women__container bd-grid">
+                            <% for (let product of prods) { %>
+                                <article class="sneaker">
+                                    <img src="<%= product.imageUrl %>" alt="" class="sneaker__img">
+                                    <span class="sneaker__name"><%= product.name %></span>
+                                    <span class="sneaker__price"> Rs.<%= product.price %>/-</span>
+                                    <a href="/admin/edit/<%= product._id %>?edit=true" class="button-light">Edit<i class="bx bx-right-arrow-alt button-icon"></i></a>
+                                    <a href="/admin/remove/<%= product._id %>?delete=true" class="button-light">Remove<i class="bx bx-right-arrow-alt button-icon"></i></a>
+                                </article>
+                            <% } %>
+                        </div>
+                        <% }  else { %>
+                            <h1>No Products Found!</h1>
+                            <% } %>
+                </div>
+            </section>
+
+            <!-- ===== COLLECTION ===== -->
+            <!-- <section class="collection section">
+                <div class="collection__container bd-grid">
+                    <div class="collection__card">
+                        <div class="collection__data">
+                            <h3 class="collection__name">Nike</h3>
+                            <p class="collection__description">New collection 2020</p>
+                            <a href="#" class="button-light">Edit<i class="bx bx-right-arrow-alt button-icon"></i></a>
+                        </div>
+                        <img src="assets/img/collection1.png" alt="" class="collection__img">
+                    </div>
+
+                    <div class="collection__card">
+                        <div class="collection__data">
+                            <h3 class="collection__name">Nike</h3>
+                            <p class="collection__description">New collection 2020</p>
+                            <a href="#" class="button-light">Edit<i class="bx bx-right-arrow-alt button-icon"></i></a>
+                        </div>
+                        <img src="assets/img/collection2.png" alt="" class="collection__img">
+                    </div>
+
+                </div>
+            </section> -->
+
+            </main>
+</body>
+</html>

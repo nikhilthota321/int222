@@ -1,0 +1,32 @@
+<!--===== HEADER =====-->
+<header class="l-header" id="header">
+    <nav class="nav bd-grid" >
+        <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bxs-grid"></i>
+        </div>
+
+        <a href="#" class="nav__logo">Roby</a>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="/admin/" class=<% if(title === 'products'){ %>"nav__link active"<% } else { %> "nav__link" <% } %>>Products</a>
+                </li>
+                <li class="nav__item ">
+                    <a href="/admin/add" class= <% if(title === 'Add Product'){ %>"nav__link active"<% } else { %> "nav__link" <% } %> active>Add</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/admin/categories" class=<% if(title === 'Categories'){ %>"nav__link active"<% } else { %> "nav__link" <% } %>>Categories</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/admin/orders" class=<% if(title === 'orders'){ %>"nav__link active"<% } else { %> "nav__link" <% } %>>Orders</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/admin/logout" class="nav__link"> Logout </a>
+                </li>
+            </ul>
+        </div>
+
+
+    </nav>
+</header>

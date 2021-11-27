@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--===== MAIN JS =====-->
+        <script src="./assets/js/main.js" defer></script>
+
+        <title>All Products</title>
+        <link rel="icon" href="./assets/img/roby.ico"/>
+
+    </head>
+    <body>
+
+        <%- include('../templates/user-header', {title: title, isAutheticated : isAutheticated}); %>
+
+        <main class="l-main">
+            <section class="featured section" id="shop">
+                <h2 class="section-title">All Products</h2>
+
+                <div class="featured__container bd-grid">
+                    <div class="women__container bd-grid">
+                        <% for (let product of products) {%>
+                        <article class="sneaker">
+                            <img src="<%= product.imageUrl %>" alt="" class="sneaker__img">
+                            <span class="sneaker__name"><%= product.name %></span>
+                            <span class="sneaker__price">Rs.<%= product.price %>/-</span>
+                            <a href="/add-to-cart/<%= product.id %>" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                        </article>
+                        <% } %>
+                    </div>
+                </div>
+                    <!-- <article class="sneaker">
+                        <img src="assets/img/featured1.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Jordan</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/featured2.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free RN</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/featured3.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free RN</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/new2.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free RN</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/new3.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free RN</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/new4.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free RN</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>                    
+                    <article class="sneaker">
+                        <img src="assets/img/new5.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">Nike Free RN</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/women1.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">New Womens</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/women2.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">New Womens</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/women3.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">New Womens</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article>
+                    <article class="sneaker">
+                        <img src="assets/img/women4.png" alt="" class="sneaker__img">
+                        <span class="sneaker__name">New Womens</span>
+                        <span class="sneaker__price"></span>
+                        <a href="" class="button-light">Add to Cart <i class="bx bx-right-arrow-alt button-icon"></i></a>
+                    </article> -->
+                </div>
+
+                <div class="sneaker__pages bd-grid">
+                    <div class="">
+                        <span class="sneaker__pag">1</span>
+                        <span class="sneaker__pag">2</span>
+                        <span class="sneaker__pag">3</span>
+                        <span class="sneaker__pag">4</span>
+                        <span class="sneaker__pag">&#8594;</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <%- include('../templates/footer'); %>
+
+
+        <!--===== MAIN JS =====-->
+        
+    </body>
+</html>

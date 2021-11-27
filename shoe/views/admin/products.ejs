@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="../assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+   
+    <title><%= title %></title>
+</head>
+<body>
+            <%- include('../templates/admin-header', {title : title}) %>
+
+            <main class="l-main">
+                <section class="women section" id="shop">
+                    <h2 class="section-title">All Products</h2>
+                    <% if (prods.length > 0) { %>
+                        <div class="women__container bd-grid">
+                            <% for (let product of prods) { %>
+                                <article class="sneaker">
+                                    <img src="<%= product.imageUrl %>" alt="" class="sneaker__img">
+                                    <span class="sneaker__name"><%= product.name %></span>
+                                    <span class="sneaker__price"> Rs.<%= product.price %>/-</span>
+                                    <a href="/admin/edit/<%= product._id %>?edit=true" class="button-light">Edit<i class="bx bx-right-arrow-alt button-icon"></i></a>
+                                    <a href="/admin/remove/<%= product._id %>?delete=true" class="button-light">Remove<i class="bx bx-right-arrow-alt button-icon"></i></a>
+                                </article>
+                            <% } %>
+                        </div>
+                        <% }  else { %>
+                            <h1>No Products Found!</h1>
+                            <% } %>
+                    <div class="sneaker__pages bd-grid">
+                        <div class="">
+                            <span class="sneaker__pag">1</span>
+                            <span class="sneaker__pag">2</span>
+                            <span class="sneaker__pag">3</span>
+                            <span class="sneaker__pag">4</span>
+                            <span class="sneaker__pag">&#8594;</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
+</body>
+</html>

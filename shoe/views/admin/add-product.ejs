@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="../assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+   
+    <title><%= title %></title>
+</head>
+<body>
+            <!--===== HEADER =====-->
+            <%- include('../templates/admin-header',{ title : title}) %>
+
+            <main class="l-main">
+
+                <section class="add__product section bd-grid">
+                    <h2 class="section-title">ADD PRODUCT</h2>
+                    <div class="row">
+                        <form action="/admin/addproduct" method="post" class = "col add__product-form" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="image" >Upload Product Image</label>
+                                <input onchange="readURL(this);" accept="image/png, image/jpeg" type="file" name="productImage" class="product_img" id="product_img" required>
+                            </div>
+                            <div class="form-group ">
+                                <label for="name" class=" col-form-label">Name</label>
+                                <input type="text" name="name" id="product_name" class="form-control" placeholder="Product's Name" required>
+                            </div>
+                            <div class="form-group ">
+                                <label for="price" class="col-form-label">Price</label>
+                                <input type="number" name="price" id="price" class="form-control" placeholder="price" required>
+                            </div>
+                            <div id="categories" class="form-group">
+                                <label for="categories">Categories:</label>
+                                <div class="form-check col-sm-1">
+                                    <input class="form-check-input" type="checkbox" name="featured" id="featured">
+                                    <label class="form-check-label" for="featured">Featured</label>
+                                </div>
+                                <div class="form-check col-sm-6">
+                                    <input class="form-check-input" type="checkbox" name="newCollection" id="newCollection">
+                                    <label class="form-check-label" for="newCollection">New Collection</label>
+                                </div>
+                                <!-- <div class="form-check col-sm-1">
+                                    <input class="form-check-input" type="checkbox" name="mens" id="mens">
+                                    <label class="form-check-label" for="womens">Women's</label>
+                                </div>
+                                <div class="form-check col-sm-1">
+                                    <input class="form-check-input" type="checkbox" name="womens" id="womens">
+                                    <label class="form-check-label" for="featured">Featured</label>
+                                </div> -->
+                            </div>
+                            <div class= "form-group">
+                                <select class="form-control form-control-sm" name="gender" id="gender">
+                                    <option value="unisex" >Select a Gender</option>
+                                    <option value = 'female'>Female</option>
+                                    <option value = 'male'>Male</option>
+                                    <option value = 'unisex'>Unisex</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Create Product</button>
+                        </form>
+                        <div class="col image_view">
+                            <img src="../assets/img/img_icon.png" id="newProductImage" alt="">
+                        </div>
+                    </div>
+                    
+                </section>
+
+            </main>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    document.querySelector('#newProductImage')
+                        .setAttribute('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        const message = "<%= notification %>"
+        console.log(message)
+        if(message)
+            alert(message)
+        const errorMessage = "<%= errorMessage %>"
+        if(errorMessage)
+            alert(errorMessage)
+    </script>
+</body>
+</html>

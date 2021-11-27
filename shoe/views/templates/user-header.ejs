@@ -1,0 +1,56 @@
+        <!--===== HEADER =====-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-grid" >
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="bx bxs-grid"></i>
+                </div>
+
+                <a href="#" class="nav__logo">Roby</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item " >
+                            <a href= <% if(title === 'home'){ %>"#home"<% } else { %> "./#home"<% } %> class=<% if(title === 'home'){ %>"nav__link active"<% } else { %> "nav__link" <% } %> active>Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href=<% if(title === 'home'){ %> "#featured" <% } else { %> "./#featured"<% } %> class="nav__link">Featured</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href= <% if(title === 'home'){ %>"#women"<% } else { %> "./#women"<% } %> class="nav__link">Women</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href= <% if(title === 'home'){ %>"#new"<% } else { %> "./#new" <% } %> class="nav__link">New</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="./shop" class= <% if(title === 'shop'){ %>"nav__link active"<% } else { %> "nav__link" <% } %>>Shop</a>
+                        </li>
+                        <% if(isAutheticated){ %>
+                        <li class="nav__item">
+                            <a href="./orders" class=<% if(title === 'orders'){ %>"nav__link active"<% } else { %> "nav__link" <% } %>>Orders</a>
+                        </li>
+                        <% } %>
+                        <% if(!isAutheticated ) { %>
+                        <li class="nav__item">
+                            <a href="./login" class=<% if(title === 'login'){ %>"nav__link active"<% } else { %> "nav__link" <% } %>> Login </a>
+                        </li>
+                        <% } else{ %>
+                            <li class="nav__item">
+                                <a href="./logout" > Logout </a>
+                            </li>
+                        <% } %>
+                        <!-- <i class='bx bx-user'></i> -->
+                    </ul>
+                </div>
+
+                <!-- <a href="#"><i class='bx bx-user'></i></a>
+                <a href="#"><i class="bx bx-shopping-bag"></i></a> -->
+
+                <div class="nav__shop">
+                    
+                    <a href="./cart" class="cart" ><i class="bx bx-shopping-bag"></i></a>
+                    <!-- <i class='bx bx-user'></i>
+                    <i class="bx bx-shopping-bag"></i> -->
+                </div>
+
+            </nav>
+        </header>
